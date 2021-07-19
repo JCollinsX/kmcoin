@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  kmcoin:
+    build: .
+    container_name: kmcoin
+    image: kmcoin
+    restart: unless-stopped
+    environment:
+      DISPLAY: "${DISPLAY}"
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix
+    network_mode: host
+
+networks:
+  default:
+    external:
+      name: pkm-net
